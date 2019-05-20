@@ -7,23 +7,27 @@ Super Resolution Framework with Pytorch
 * Ubuntu 16.04
 * CUDA 8.0 [+]
 
+## Material
+* VSR Framworks ([LoSealL/VideoSuperResolution](https://github.com/LoSealL/VideoSuperResolution))
+* VSR papers ([flyywh/Video-Super-Resolution](https://github.com/flyywh/Video-Super-Resolution))
+
 ## Dataset
-* Vid4
-* SPMCS
-* Vimeo-90k
+Vid4
+SPMCS
+Vimeo-90k
 
 ## Papers
 #### Conference
 1. Fast Spatio-Temporal Residual Network for Video Super-Resolution, CVPR, 2019. (FSTRN)
-2. Recurrent Back-Projection Network for Video Super-Resolution, CVPR, 2019. (RBPN)
-3. Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation, CVPR, 2018. (VSR-DUF)
+2. Recurrent Back-Projection Network for Video Super-Resolution, CVPR, 2019. (RBPN) ([code](https://github.com/alterzero/RBPN-Pytorch))
+3. Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation, CVPR, 2018. (VSR-DUF) ([code](https://github.com/yhjo09/VSR-DUF))
 4. Mehdi S. M. Sajjadi et al., Frame-Recurrent Video Super-Resolution, CVPR, 2018. (FRVSR)
-5. Xin Tao et al., Detail-Revealing Deep Video Super-Resolution, ICCV, 2017.
+5. Xin Tao et al., Detail-Revealing Deep Video Super-Resolution, ICCV, 2017. ([code](https://github.com/jiangsutx/SPMC_VideoSR))
 6. Ding Liu et al., Robust Video Super-Resolution With Learned Temporal Dynamics, ICCV, 2017.
 7. Deep Super Resolution for Recovering Physiological Information from Videos, CVPRW, 2018.
 8. Video Super Resolution Based on Deep Convolution Neural Network With Two-Stage Motion Compensation, ICMEW, 2018.
 
-#### Journals
+#### Journal
 1. Generative Adversarial Networks and Perceptual Losses for Video Super-Resolution, TIP, 2019.
 2. Multi-Memory Convolutional Neural Network for Video Super-Resolution, TIP, 2019.
 3. Learning Temporal Dynamics for Video Super-Resolution: A Deep Learning Approach, TIP, 2018.
@@ -33,7 +37,7 @@ Super Resolution Framework with Pytorch
 1. EDVR: Video Restoration with Enhanced Deformable Convolutional Networks, arXiv, 2019, 05.
 2. Two-Stream Oriented Video Super-Resolution for Action Recognition, arXiv, 2019, 03.
 3. Yapeng Tian, Yulun Zhang, Yun Fu, and Chenliang Xu. TDAN: Temporally Deformable Alignment Network for Video Super-Resolution, arXiv, 2018, 12. (TDAN)
-4. Temporally Coherent GANs for Video Super-Resolution (TecoGAN), arXiv, 2018, 11.
+4. Temporally Coherent GANs for Video Super-Resolution (TecoGAN), arXiv, 2018, 11. ([code](https://github.com/thunil/TecoGAN))
 5. 3DSRnet: Video Super-resolution using 3D Convolutional Neural Networks, arXiv, 2018, 12.
 6. Photorealistic Video Super Resolution, arXiv, 2018, 07.
 
@@ -44,4 +48,3 @@ Super Resolution Framework with Pytorch
   Tip or Que: replace the 3D Conv with FSTRN Model, and discard the BN Layers
 4. FRVSR
 5. TDAN
-
