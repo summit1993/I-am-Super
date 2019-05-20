@@ -25,9 +25,11 @@ class ProcessBase:
             lr=self.configs.optimizer_configs['lr'], 
             weight_decay=self.configs.optimizer_configs['weight_decay'])
         self.model_save_dir = self.configs.save_configs['model']
+        self.model_save_dir = os.path.join(self.model_save_dir, self.configs.model_configs['model_name'])
         if not os.path.exists(self.model_save_dir):
             os.makedirs(self.model_save_dir)
         self.result_save_dir = self.configs.save_configs['result']
+        self.result_save_dir = os.path.join(self.result_save_dir, self.configs.model_configs['model_name'])
         if not os.path.exists(self.result_save_dir):
             os.makedirs(self.result_save_dir)
           

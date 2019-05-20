@@ -13,6 +13,7 @@ class FSTRN_Configs(ConfigsBase):
     def __init__(self):
         super(FSTRN_Configs, self).__init__()
         self.model_configs = {
+            'model_name': 'FSTRN', 
             'rfb_num': 4,
         }
         train_tmp = pickle.load(open(os.path.join(root_dir, 'train.pkl'), 'rb'))
