@@ -7,6 +7,14 @@ Video Super Resolution Framework with Pytorch
 * Ubuntu 16.04
 * CUDA 8.0 [+]
 
+## Models 
+1. Fast Spatio-Temporal Residual Network for Video Super-Resolution, CVPR, 2019. (FSTRN)
+
+## Run
+* Run the main python file in Model folders, e.g., 
+
+&ensp;&ensp;&ensp;&ensp; python FSTRN_main.py
+
 ## Material
 * VSR Framworks ([LoSealL/VideoSuperResolution](https://github.com/LoSealL/VideoSuperResolution))
 * VSR papers ([flyywh/Video-Super-Resolution](https://github.com/flyywh/Video-Super-Resolution))
@@ -26,7 +34,7 @@ Video Super Resolution Framework with Pytorch
 1. Generative Adversarial Networks and Perceptual Losses for Video Super-Resolution, TIP, 2019.
 2. Multi-Memory Convolutional Neural Network for Video Super-Resolution, TIP, 2019.
 3. Learning Temporal Dynamics for Video Super-Resolution: A Deep Learning Approach, TIP, 2018.
-4. Video Super-Resolution via Bidirectional Recurrent Convolutional Networks， TPAMI, 2018.
+4. Video Super-Resolution via Bidirectional Recurrent Convolutional Networks, TPAMI, 2018.
 
 #### arXiv
 1. EDVR: Video Restoration with Enhanced Deformable Convolutional Networks, arXiv, 2019, 05.
@@ -37,9 +45,8 @@ Video Super Resolution Framework with Pytorch
 6. Photorealistic Video Super Resolution, arXiv, 2018, 07.
 
 ## Models to be Reproduced
-1. FSTRN
-2. RBPN
-3. VSR-DUF
+1. RBPN
+2. VSR-DUF
   (Tip or Que: replace the 3D Conv with FSTRN Model, and discard the BN Layers)
-4. FRVSR
-5. TDAN
+3. FRVSR
+4. TDAN
