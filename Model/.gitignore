@@ -1,0 +1,6 @@
+./data
+./data/*
+./Model/FSTRN/___pycache__
+./Model/FSTRN/___pycache__/*
+*___pycache__/*
+*___pycache__

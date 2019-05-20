@@ -1,10 +1,12 @@
 # -*- coding: UTF-8 -*-
 import pickle
 import os
+import sys
+sys.path.append(os.path.join(sys.path[0], '../..'))
 from Core.config import ConfigsBase
 
 # root_dir = '/data1/youku'
-root_dir = 'D:\\program\\deep_learning\\Deep-HC\\I-am-Fine\\VSR\\data'
+root_dir = 'D:\\program\\deep_learning\\I-am-Super\\data'
 
 class FSTRN_Configs(ConfigsBase):
     def __init__(self):

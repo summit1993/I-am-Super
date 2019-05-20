@@ -2,7 +2,9 @@
 import abc
 import torch.optim as optim
 import torch
-from utils import get_SVR_loaders
+import sys, os
+sys.path.append(os.path.join(sys.path[0], '../..'))
+from Core.utils import get_SVR_loaders
 import os
 
 class ProcessBase:
