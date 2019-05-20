@@ -44,7 +44,7 @@ Vimeo-90k
 ## Models to be Reproduced
 1. FSTRN
 2. RBPN
-3. VSR-DUF  <\br>
+3. VSR-DUF  <br\>
   Tip or Que: replace the 3D Conv with FSTRN Model, and discard the BN Layers
 4. FRVSR
 5. TDAN
