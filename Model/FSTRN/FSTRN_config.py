@@ -6,9 +6,9 @@ from Core.config import ConfigsBase
 # root_dir = '/data1/youku'
 root_dir = 'D:\\program\\deep_learning\\Deep-HC\\I-am-Fine\\VSR\\data'
 
-class PSTRN_Configs(ConfigsBase):
+class FSTRN_Configs(ConfigsBase):
     def __init__(self):
-        super(PSTRN_Configs, self).__init__()
+        super(FSTRN_Configs, self).__init__()
         self.model_configs = {
             'rfb_num': 4,
         }

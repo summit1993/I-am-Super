@@ -7,7 +7,7 @@ import torch
 L_size = (480, 270)
 H_size = (1920, 1080)
 
-class PSTRN_Dataset(Dataset):
+class FSTRN_Dataset(Dataset):
     def __init__(self, image_list, image_root_dir, has_hr, volume_k, transform):
         self.image_root_dir = image_root_dir
         self.image_list = image_list

@@ -9,13 +9,13 @@ sys.path.append(os.path.join(sys.path[0], '../..'))
 from Core.utils import get_SVR_loaders
 from Core.VSR_metrics import cal_img_PSNR
 from Core.process import ProcessBase
-from PSTRN_model import FSTRN_Model
-from PSTRN_dataset import PSTRN_Dataset
+from FSTRN_model import FSTRN_Model
+from FSTRN_dataset import FSTRN_Dataset
 
-class PSTRN_Process(ProcessBase):
+class FSTRN_Process(ProcessBase):
     def __init__(self, configs):
-        super(PSTRN_Process, self).__init__()
-        self.init_parameters(FSTRN_Model, PSTRN_Dataset, configs)
+        super(FSTRN_Process, self).__init__()
+        self.init_parameters(FSTRN_Model, FSTRN_Dataset, configs)
 
     def process(self):
         param = {}

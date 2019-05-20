@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import abc
 import torch.optim as optim
+import torch
 from utils import get_SVR_loaders
 import os
 
@@ -9,6 +10,10 @@ class ProcessBase:
     def init_parameters(self, model_class, dataset_class, configs):
         self.configs = configs
         self.model = model_class(self.configs.model_configs)
+        if 'pre_model' in self.configs.model_configs:
+            checkpoint = torch.load(self.configs.model_configs['pre_model'])
+            self.model.load_state_dict(checkpoint['model_state_dict'], strict=False)
+            self.model.train()
         self.device = self.configs.regular_config['device']
         self.model = self.model.to(self.device)
         self.data_loaders = get_SVR_loaders(dataset_class, 
