@@ -1,5 +1,5 @@
 # I-am-Super
-Super Resolution Framework with Pytorch
+Video Super Resolution Framework with Pytorch
 
 ## Environment
 * Python 3.6 [+]
