@@ -7,7 +7,7 @@ import torch
 L_size = (480, 270)
 H_size = (1920, 1080)
 
-class SVRDataset(Dataset):
+class PSTRN_Dataset(Dataset):
     def __init__(self, image_list, image_root_dir, has_hr, volume_k, transform):
         self.image_root_dir = image_root_dir
         self.image_list = image_list
@@ -35,6 +35,7 @@ class SVRDataset(Dataset):
         if self.volume_k == 0:
             LR_Volume[0] = LR_image
         else:
+            LR_Volume[self.volume_k] = LR_image
             left_begin = max(1, image_index - self.volume_k)
             right_end = min(image_index + self.volume_k, item['nums'])
             for k in range(image_index - left_begin):

@@ -2,12 +2,12 @@ import torch
 import torch.nn as nn
 
 class FSTRN_Model(nn.Module):
-    def __init__(self, rfb_num):
+    def __init__(self, model_para):
         super(FSTRN_Model, self).__init__()
         self.lfe = self.create_bottle_net(has_relu=False)
         self.RFB_blocks = nn.Sequential()
-        self.rfb_num = rfb_num
-        for i in range(rfb_num):
+        self.rfb_num = model_para['rfb_num']
+        for i in range(self.rfb_num):
             self.RFB_blocks.add_module('rfb_' + str(i + 1), self.create_bottle_net())
         self.lrl = nn.Sequential()
         self.lrl.add_module('PReLU', nn.PReLU())

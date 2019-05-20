@@ -18,6 +18,11 @@ class ConfigsBase:
         }
         self.model_configs = {}
         self.dataset_configs = {}
+        self.save_configs = {
+            'model': 'models',
+            'result': 'results',
+        }
+        
 
     def get_configs_dict(self):
         configs = {
@@ -25,6 +30,7 @@ class ConfigsBase:
             'optimizer': self.optimizer_configs,
             'model': self.model_configs,
             'dataset': self.dataset_configs,
+            'save': self.save_configs,
         }
         return configs
 
