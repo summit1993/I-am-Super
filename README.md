@@ -11,11 +11,6 @@ Video Super Resolution Framework with Pytorch
 * VSR Framworks ([LoSealL/VideoSuperResolution](https://github.com/LoSealL/VideoSuperResolution))
 * VSR papers ([flyywh/Video-Super-Resolution](https://github.com/flyywh/Video-Super-Resolution))
 
-## Dataset
-Vid4
-SPMCS
-Vimeo-90k
-
 ## Papers
 #### Conference
 1. Fast Spatio-Temporal Residual Network for Video Super-Resolution, CVPR, 2019. (FSTRN)
