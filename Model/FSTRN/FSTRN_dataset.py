@@ -8,12 +8,12 @@ L_size = (480, 270)
 H_size = (1920, 1080)
 
 class FSTRN_Dataset(Dataset):
-    def __init__(self, image_list, image_root_dir, has_hr, volume_k, transform):
-        self.image_root_dir = image_root_dir
-        self.image_list = image_list
-        self.has_hr = has_hr
-        self.volume_k = volume_k
-        self.transform = transform
+    def __init__(self, param):
+        self.image_root_dir = param['image_root_dir']
+        self.image_list = param['images']
+        self.has_hr = param['has_hr']
+        self.volume_k = param['volume_k']
+        self.transform = param['transform']
 
     def __len__(self):
         return len(self.image_list)

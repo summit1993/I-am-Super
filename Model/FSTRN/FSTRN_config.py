@@ -6,7 +6,8 @@ sys.path.append(os.path.join(sys.path[0], '../..'))
 from Core.config import ConfigsBase
 
 # root_dir = '/data1/youku'
-root_dir = 'D:\\program\\deep_learning\\I-am-Super\\data'
+# root_dir = 'D:\\program\\deep_learning\\I-am-Super\\data'
+root_dir = 'H:\\data\\youku'
 
 class FSTRN_Configs(ConfigsBase):
     def __init__(self):

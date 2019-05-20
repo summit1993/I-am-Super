@@ -16,10 +16,10 @@ class ProcessBase:
             checkpoint = torch.load(self.configs.model_configs['pre_model'])
             self.model.load_state_dict(checkpoint['model_state_dict'], strict=False)
             self.model.train()
-        self.device = self.configs.regular_config['device']
+        self.device = self.configs.regular_configs['device']
         self.model = self.model.to(self.device)
         self.data_loaders = get_SVR_loaders(dataset_class, 
-            self.configs.regular_config, self.configs.data_set_config)
+            self.configs.regular_configs, self.configs.dataset_configs)
         self.optimizer = optim.Adam(filter(lambda p: p.requires_grad, 
             self.model.parameters()),
             lr=self.configs.optimizer_configs['lr'], 
