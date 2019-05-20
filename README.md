@@ -8,11 +8,9 @@ Super Resolution Framework with Pytorch
 * CUDA 8.0 [+]
 
 ## Dataset
-Vid4
-
-SPMCS
-
-Vimeo-90k
+* Vid4
+* SPMCS
+* Vimeo-90k
 
 ## Papers
 #### Conference
