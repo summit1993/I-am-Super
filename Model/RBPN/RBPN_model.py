@@ -65,7 +65,7 @@ class RBPN_Model(nn.Module):
         # inputs[0]: LR image; inputs[1]: neighbors
         x = inputs[0]
         neigbor = inputs[1]
-        neigbor = neigbor.permute(1, 0, 2, 3)
+        neigbor = neigbor.permute(1, 0, 2, 3, 4)
         # Initial Feature Extraction
         feat_input = self.feat0(x)
         feat_frame=[]

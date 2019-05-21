@@ -4,7 +4,7 @@ import torch.nn as nn
 
 class DBPN_Model(nn.Module):
     def __init__(self, base_filter, feat, num_stages, scale_factor):
-
+        super(DBPN_Model, self).__init__()
         if scale_factor == 2:
         	kernel = 6
         	stride = 2

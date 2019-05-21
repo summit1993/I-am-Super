@@ -13,7 +13,7 @@ class DatasetBase(Dataset):
         self.image_list = param['images']
         self.has_hr = param['has_hr']
         self.neigbor_index = param['neigbor_index']
-        self.neigbor_index = self.neigbor_index.sort()
+        self.neigbor_index.sort()
         self.transform = param['transform']
         self.fill_method = param['fill_method']
 
