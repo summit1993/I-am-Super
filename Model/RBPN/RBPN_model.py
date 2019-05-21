@@ -27,7 +27,7 @@ class RBPN_Model(nn.Module):
         self.feat1 = ConvBlock(6, param['C_m'], 3, 1, 1, activation='prelu', norm=None)
         
         # Net_sisr (DBPN)
-        self.Net_sisr = DBPN_Model(param['C_l'], param['C_h'], param['num_stages'], scale_factor)
+        self.Net_sisr = DBPN_Model(param['C_l'], param['C_h'], param['DBPN_num_stages'], scale_factor)
 
         # Net_misr (ResNet1)
         modules_body1 = [ResnetBlock(param['C_m'], kernel_size=3, stride=1, padding=1, bias=True, activation='prelu', norm=None) 
@@ -61,7 +61,11 @@ class RBPN_Model(nn.Module):
         	    if m.bias is not None:
         		    m.bias.data.zero_() 
     
-    def forward(self, x, neigbor):
+    def forward(self, inputs):
+        # inputs[0]: LR image; inputs[1]: neighbors
+        x = inputs[0]
+        neigbor = inputs[1]
+        neigbor = neigbor.permute(1, 0, 2, 3)
         # Initial Feature Extraction
         feat_input = self.feat0(x)
         feat_frame=[]
