@@ -11,11 +11,11 @@ class RBPN_Configs(ConfigsBase):
         self.model_configs = {
             'model_name': 'RBPN', 
             'scale_factor': 4,
-            'C_l': 256, 
-            'C_m': 256,
-            'C_h': 64,
+            'C_l': 32, # 256 
+            'C_m': 32, # 256
+            'C_h': 4,  # 64
             'DBPN_num_stages': 3,
-            'n_resblock': 5, 
+            'n_resblock': 4, 
             'nFrames': self.nFrames,
         }
 

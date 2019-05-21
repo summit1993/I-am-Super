@@ -37,9 +37,9 @@ class DatasetBase(Dataset):
                                 LR_image_trans.shape[1], LR_image_trans.shape[2])
             for i in range(neigbor_size):
                 index = self.neigbor_index[i]
-                image_file = os.path.join(LR_dir, str(image_index + index).zfill(3) + '.bmp')
-                if os.path.exists(image_file):
-                    img_tmp = self._read_image(image_file, L_size)
+                image_path = os.path.join(LR_dir, str(image_index + index).zfill(3) + '.bmp')
+                if os.path.exists(image_path):
+                    img_tmp = self._read_image(image_path, L_size)
                     img_tmp = self.transform(img_tmp)
                     LR_neigbor[i] = img_tmp
                 else:
