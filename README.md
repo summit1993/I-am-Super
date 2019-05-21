@@ -9,6 +9,7 @@ Video Super Resolution Framework with Pytorch
 
 ## Models 
 1. Fast Spatio-Temporal Residual Network for Video Super-Resolution, CVPR, 2019. (FSTRN)
+2. Recurrent Back-Projection Network for Video Super-Resolution, CVPR, 2019. (RBPN)
 
 ## Run
 * Run the main python file in Model folders, e.g., 
@@ -45,8 +46,7 @@ Video Super Resolution Framework with Pytorch
 6. Photorealistic Video Super Resolution, arXiv, 2018, 07.
 
 ## Models to be Reproduced
-1. RBPN
-2. VSR-DUF
+1. VSR-DUF
   (Tip or Que: replace the 3D Conv with FSTRN Model, and discard the BN Layers)
-3. FRVSR
-4. TDAN
+2. FRVSR
+3. TDAN
