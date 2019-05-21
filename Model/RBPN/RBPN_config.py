@@ -7,7 +7,7 @@ from Core.config import ConfigsBase
 class RBPN_Configs(ConfigsBase):
     def __init__(self):
         super(RBPN_Configs, self).__init__()
-        self.nFrames = 7
+        self.nFrames = 5 # 7
         self.model_configs = {
             'model_name': 'RBPN', 
             'scale_factor': 4,
