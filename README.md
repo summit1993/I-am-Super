@@ -25,7 +25,7 @@ configs.dataset_configs.pop('val')
 configs.dataset_configs.pop('test')
 ```
 
-&ensp;&ensp;&ensp;&ensp; or you just want to use the model to predict, edit the code in the main file like
+&ensp;&ensp;&ensp;&ensp; or if you just want to use the model to predict, edit the code in the main file like
 ```python
 # set your trained model path
 configs.model_configs['pre_model'] = "your trained model path"
