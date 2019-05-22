@@ -16,6 +16,25 @@ Video Super Resolution Framework with Pytorch
 
 &ensp;&ensp;&ensp;&ensp; CUDA_VISIBLE_DEVICES=6,2,4 python FSTRN_main.py
 
+* It is very convenient to train, evaluate or test the model, where you just need to edit the main file, e.g.,
+
+&ensp;&ensp;&ensp;&ensp; if you just want to train the model, edit the code in the main file like
+```python
+# remove the val and test process
+configs.dataset_configs.pop('val')
+configs.dataset_configs.pop('test')
+```
+
+&ensp;&ensp;&ensp;&ensp; or you just want to use the model to predict, edit the code in the main file like
+```python
+# set your trained model path
+configs.model_configs['pre_model'] = "your trained model path"
+# remove the train and val process
+configs.dataset_configs.pop('train')
+configs.dataset_configs.pop('val')
+```
+
+
 ## Material
 * VSR Framworks ([LoSealL/VideoSuperResolution](https://github.com/LoSealL/VideoSuperResolution))
 * VSR papers ([flyywh/Video-Super-Resolution](https://github.com/flyywh/Video-Super-Resolution))
