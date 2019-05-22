@@ -14,7 +14,7 @@ Video Super Resolution Framework with Pytorch
 ## Run
 * Run the main python file in Model folders, e.g., 
 
-&ensp;&ensp;&ensp;&ensp; python FSTRN_main.py
+&ensp;&ensp;&ensp;&ensp; CUDA_VISIBLE_DEVICES=6,2,4 python FSTRN_main.py
 
 ## Material
 * VSR Framworks ([LoSealL/VideoSuperResolution](https://github.com/LoSealL/VideoSuperResolution))
