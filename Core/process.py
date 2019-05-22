@@ -18,7 +18,7 @@ class ProcessBase:
             checkpoint = torch.load(self.configs.model_configs['pre_model'])
             self.model.load_state_dict(checkpoint['model_state_dict'], strict=False)
             self.model.train()
-        if self.configs.model_configs['multi_gpu']:
+        if torch.cuda.device_count() > 1:
             self.model = nn.DataParallel(self.model)
         self.device = self.configs.regular_configs['device']
         self.model = self.model.to(self.device)

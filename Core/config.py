@@ -22,9 +22,7 @@ class ConfigsBase:
             'lr': 1e-4,
             'weight_decay': 1e-5,
         }
-        self.model_configs = {
-            'multi_gpu': False,
-        }
+        self.model_configs = {}
         self.save_configs = {
             'model': 'models',
             'result': 'results',

@@ -17,7 +17,6 @@ class RBPN_Configs(ConfigsBase):
             'DBPN_num_stages': 3, # 4
             'n_resblock': 4,  # 5
             'nFrames': self.nFrames,
-            'multi_gpu': True
         }
 
         volume_k = int(self.nFrames / 2)
