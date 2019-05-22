@@ -18,7 +18,7 @@ class ProcessBase:
         if 'pre_model' in self.configs.model_configs:
             checkpoint = torch.load(self.configs.model_configs['pre_model'])
             self.model.load_state_dict(checkpoint['model_state_dict'], strict=False)
-            self.model.train()
+            # self.model.train()
         if torch.cuda.device_count() > 1:
             self.model = nn.DataParallel(self.model)
         self.device = self.configs.regular_configs['device']
