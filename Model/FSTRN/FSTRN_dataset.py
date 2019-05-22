@@ -10,10 +10,13 @@ class FSTRN_Dataset(DatasetBase):
     
     def __getitem__(self, it):
         LR_image, LR_neigbor, HR_image = self.get_base_item(it)
-        LR_R_image = LR_image.resize(HR_image.size, Image.BICUBIC)
+        LR_R_image = LR_image.resize((LR_image.size[0] * 4, LR_image.size[1] * 4), Image.BICUBIC)
         LR_R = self.transform(LR_R_image)
         LR = self.transform(LR_image)
-        HR = self.transform(HR_image)
+        if HR_image is not None:
+            HR = self.transform(HR_image)
+        else:
+            HR = it
         LR_volume = self.change_neibor_2_volume(LR, LR_neigbor)
         LR_volume = LR_volume.permute(1, 0, 2, 3)
-        return (LR_volume, HR, LR_R)
+        return (LR_volume, LR_R, HR)

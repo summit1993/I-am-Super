@@ -10,5 +10,8 @@ class RBPN_Dataset(DatasetBase):
     def __getitem__(self, it):
         LR_image, LR_neigbor, HR_image = self.get_base_item(it)
         LR = self.transform(LR_image)
-        HR = self.transform(HR_image)
+        if HR_image is not None:
+            HR = self.transform(HR_image)
+        else:
+            HR = it
         return (LR, LR_neigbor, HR)

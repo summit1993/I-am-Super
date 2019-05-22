@@ -3,6 +3,7 @@ import abc
 import torch
 import torch.optim as optim
 import torch.nn as nn
+from PIL import Image
 import numpy as np
 import sys, os
 sys.path.append(os.path.join(sys.path[0], '../..'))
@@ -49,16 +50,21 @@ class ProcessBase:
             param['val_loader'] = self.data_loaders['val']
         if 'test' in self.data_loaders:
             param['test_loader'] = self.data_loaders['test']
+            param['test_images'] = self.configs.dataset_configs['test']['images']
         for epoch in range(epoch_num):
             param['epoch'] = epoch
             self._train_process(param)
             self._val_process(param)
+            self._test_process(param)
     
     def _train_process(self, param):
+        if 'train_loader' in param:
+            train_loader = param['train_loader']
+        else:
+            return
         self.model.train()
         criterion = param['criterion']
         show_iters = param['show_iters']
-        train_loader = param['train_loader']
         epoch = param['epoch']
         model_save_epoch = param['model_save_epoch']
         running_loss = 0.0
@@ -92,9 +98,9 @@ class ProcessBase:
         else:
             return
         epoch = param['epoch']
+        print('*' * 10, 'Begin to validation', '*' * 10)
         with torch.no_grad():
             self.model.eval()
-            print('*' * 10, 'Begin to validation', '*' * 10)
             count = 0.0
             PSNR = 0.0
             for _, val_data in enumerate(val_loader, 0):
@@ -113,7 +119,33 @@ class ProcessBase:
             fw = open(os.path.join(self.result_save_dir, 'val_result_' + str(epoch) + '.txt'), 'w')
             fw.write(str(PSNR))
             fw.close()
-            print('*' * 10, 'Finish validation', '*' * 10)
+        print('*' * 10, 'Finish validation', '*' * 10)
     
-    def _test_process(self):
-        pass
+    def _test_process(self, param):
+        if 'test_loader' in param:
+            test_loader = param['test_loader']
+        else:
+            return
+        epoch = param['epoch']
+        print('*' * 10, 'Begin to prediction', '*' * 10)
+        with torch.no_grad():
+            self.model.eval()
+            test_images = param['test_images']
+            for _, test_data in enumerate(test_loader, 0):
+                test_input = [a.to(self.device) for a in test_data[:-1]]
+                index_list = test_data[-1].numpy().astype('int')
+                outputs = self.model(test_input)
+                outputs = outputs.permute(0, 2, 3, 1)
+                outputs = outputs.to('cpu').numpy()
+                outputs = np.rint(outputs)
+                outputs[outputs < 0] = 0
+                outputs[outputs > 255] = 255
+                for i in range(outputs.shape[0]):
+                    image = Image.fromarray(outputs[i].astype('uint8')).convert('RGB')
+                    item = test_images[index_list[i]]
+                    Res_dir = os.path.join(self.result_save_dir, 
+                        str(epoch), item['Res_dir'])
+                    if not os.path.exists(Res_dir):
+                        os.makedirs(Res_dir)
+                    image.save(os.path.join(Res_dir, item['image']))
+        print('*' * 10, 'Finish validation', '*' * 10)
