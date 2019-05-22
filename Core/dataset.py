@@ -67,6 +67,7 @@ class DatasetBase(Dataset):
         for i in range(len(self.neigbor_index)):
             if self.neigbor_index[i] > 0:
                 index_0 = i
+                break
         if index_0 == -1:
             index_0 = len(self.neigbor_index)
         volume[index_0] = LR
