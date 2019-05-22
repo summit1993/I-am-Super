@@ -9,6 +9,7 @@ class FSTRN_Configs(ConfigsBase):
         super(FSTRN_Configs, self).__init__()
         self.model_configs = {
             'model_name': 'FSTRN', 
-            'rfb_num': 4,
+            'frb_num': 4,
+            'type': 'origin'
         }
        
