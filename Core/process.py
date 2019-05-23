@@ -16,7 +16,10 @@ class ProcessBase:
         self.configs = configs
         self.model = model_class(self.configs.model_configs)
         if 'pre_model' in self.configs.model_configs:
-            checkpoint = torch.load(self.configs.model_configs['pre_model'])
+            if torch.cuda.is_available():
+                checkpoint = torch.load(self.configs.model_configs['pre_model'])
+            else:
+                checkpoint = torch.load(self.configs.model_configs['pre_model'], map_location='cpu')
             self.model.load_state_dict(checkpoint['model_state_dict'], strict=False)
             # self.model.train()
         if torch.cuda.device_count() > 1:
@@ -107,10 +110,15 @@ class ProcessBase:
                 val_input = [a.to(self.device) for a in val_data[:-1]]
                 outputs = self.model(val_input)
                 outputs = outputs.to('cpu').numpy()
+                outputs = outputs * 255
                 outputs = np.rint(outputs)
                 outputs[outputs < 0] = 0
                 outputs[outputs > 255] = 255
                 HR_images = val_data[-1].numpy()
+                HR_images = HR_images * 255
+                HR_images = np.rint(HR_images)
+                HR_images[HR_images < 0] = 0
+                HR_images[HR_images > 255] = 255
                 for i  in range(HR_images.shape[0]):
                         PSNR += cal_img_PSNR(outputs[i], HR_images[i])
                 count += HR_images.shape[0]
@@ -137,6 +145,7 @@ class ProcessBase:
                 outputs = self.model(test_input)
                 outputs = outputs.permute(0, 2, 3, 1)
                 outputs = outputs.to('cpu').numpy()
+                outputs = outputs * 255.0
                 outputs = np.rint(outputs)
                 outputs[outputs < 0] = 0
                 outputs[outputs > 255] = 255
@@ -148,4 +157,4 @@ class ProcessBase:
                     if not os.path.exists(Res_dir):
                         os.makedirs(Res_dir)
                     image.save(os.path.join(Res_dir, item['image']))
-        print('*' * 10, 'Finish validation', '*' * 10)
+        print('*' * 10, 'Finish predaction', '*' * 10)
