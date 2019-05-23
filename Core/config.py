@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 import torchvision.transforms as transforms
 import torch
+import numpy as np
 import pickle
 import os
 
@@ -59,8 +60,15 @@ class ConfigsBase:
         return configs
 
     def _get_transform(self):
-        transform = transforms.Compose([
-            transforms.ToTensor(),
-        ])
-        return transform
+        # transform = transforms.Compose([
+        #     transforms.ToTensor(),
+        # ])
+        # return transform
+        return my_transform
+    
+def my_transform(x):
+    x = np.array(x, dtype='float32')
+    x = torch.from_numpy(x)
+    x = x.permute(2, 0, 1)
+    return x
 

@@ -22,10 +22,10 @@ class ProcessBase:
                 checkpoint = torch.load(self.configs.model_configs['pre_model'], map_location='cpu')
             self.model.load_state_dict(checkpoint['model_state_dict'], strict=False)
             # self.model.train()
-        if torch.cuda.device_count() > 1:
-            self.model = nn.DataParallel(self.model)
         self.device = self.configs.regular_configs['device']
         self.model = self.model.to(self.device)
+        if torch.cuda.device_count() > 1:
+            self.model = nn.DataParallel(self.model)
         self.data_loaders = get_SVR_loaders(dataset_class, 
             self.configs.regular_configs, self.configs.dataset_configs)
         self.optimizer = optim.Adam(filter(lambda p: p.requires_grad, 
@@ -110,12 +110,10 @@ class ProcessBase:
                 val_input = [a.to(self.device) for a in val_data[:-1]]
                 outputs = self.model(val_input)
                 outputs = outputs.to('cpu').numpy()
-                outputs = outputs * 255
                 outputs = np.rint(outputs)
                 outputs[outputs < 0] = 0
                 outputs[outputs > 255] = 255
                 HR_images = val_data[-1].numpy()
-                HR_images = HR_images * 255
                 HR_images = np.rint(HR_images)
                 HR_images[HR_images < 0] = 0
                 HR_images[HR_images > 255] = 255
@@ -145,7 +143,6 @@ class ProcessBase:
                 outputs = self.model(test_input)
                 outputs = outputs.permute(0, 2, 3, 1)
                 outputs = outputs.to('cpu').numpy()
-                outputs = outputs * 255.0
                 outputs = np.rint(outputs)
                 outputs[outputs < 0] = 0
                 outputs[outputs > 255] = 255
