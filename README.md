@@ -63,9 +63,12 @@ configs.dataset_configs.pop('val')
 4. Temporally Coherent GANs for Video Super-Resolution (TecoGAN), arXiv, 2018, 11. ([code](https://github.com/thunil/TecoGAN))
 5. 3DSRnet: Video Super-resolution using 3D Convolutional Neural Networks, arXiv, 2018, 12.
 6. Photorealistic Video Super Resolution, arXiv, 2018, 07.
+7. EDVR: Video Restoration with Enhanced Deformable Convolutional Networks, arXiv, 2019, 5. (NTIRE 2019, 1st)
+8. Adapting Image Super-Resolution State-of-the-arts and Learning Multi-model Ensemble for Video Super-Resolution, arXiv, 2019, 5. (NTIRE 2019, 2nd)
 
 ## Models to be Reproduced
 1. VSR-DUF
   (Tip or Que: replace the 3D Conv with FSTRN Model, and discard the BN Layers)
+2. EDVR 
 2. FRVSR
-3. TDAN
+4. TDAN
