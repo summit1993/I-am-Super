@@ -46,7 +46,8 @@ class ProcessBase:
         epoch_num = self.configs.regular_configs['epoch_num']
         param['show_iters'] = self.configs.regular_configs['show_iters']
         param['model_save_epoch'] = self.configs.regular_configs['model_save_epoch']
-        param['criterion'] = nn.L1Loss()
+        # param['criterion'] = nn.L1Loss()
+        param['criterion'] = self.configs.optimizer_configs['criterion']
         if 'train' in self.data_loaders:
             param['train_loader'] = self.data_loaders['train']
         if 'val' in self.data_loaders:

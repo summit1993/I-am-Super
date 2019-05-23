@@ -20,8 +20,9 @@ class ConfigsBase:
             'model_save_epoch': 1,
         }
         self.optimizer_configs = {
-            'lr': 1e-4,
+            'lr': 1e-5,
             'weight_decay': 1e-5,
+            'criterion': torch.nn.MSELoss(),
         }
         self.model_configs = {}
         self.save_configs = {
