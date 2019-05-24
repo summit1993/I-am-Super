@@ -2,6 +2,7 @@
 from torch.utils.data import Dataset
 import os
 from PIL import Image
+import numpy as np
 import torch
 
 L_size = (480, 270)
@@ -16,6 +17,7 @@ class DatasetBase(Dataset):
         self.neigbor_index.sort()
         self.transform = param['transform']
         self.fill_method = param['fill_method']
+        self.image_fill_method = param['image_fill_method']
 
     def __len__(self):
         return len(self.image_list)
@@ -57,7 +59,13 @@ class DatasetBase(Dataset):
         if img.mode != 'RGB':
             img = img.convert('RGB')
         if img.size != right_size:
-            img = img.resize(right_size, Image.BICUBIC)
+            if self.image_fill_method == 'bicubic':
+                img = img.resize(right_size, Image.BICUBIC)
+            else:
+                img_numpy = np.array(img)
+                img_large = np.zeros((right_size[1], right_size[0], 3), dtype='uint8')
+                img_large[:img_numpy.shape[0],:img_numpy.shape[1]] = img_numpy
+                img = Image.fromarray(img_large).convert('RGB')
         return img
 
     def change_neibor_2_volume(self, LR, LR_neigbor):

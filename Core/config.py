@@ -40,15 +40,15 @@ class ConfigsBase:
             'train': {'shuffle': True, 'transform': self._get_transform(),
                         'images': train_tmp, 'neigbor_index': neighbor_index, 'has_hr': True,
                         'image_root_dir': os.path.join(root_dir, 'images'),
-                        'fill_method': 'LR'},
+                        'fill_method': 'LR', 'image_fill_method': 'padding'},
             'val': {'shuffle': False, 'transform': self._get_transform(),
                         'images': val_tmp, 'neigbor_index': neighbor_index, 'has_hr': True,
                         'image_root_dir': os.path.join(root_dir, 'images'), 
-                        'fill_method': 'LR'},
+                        'fill_method': 'LR', 'image_fill_method': 'padding'},
             'test': {'shuffle': False, 'transform': self._get_transform(),
                         'images': test_tmp, 'neigbor_index': neighbor_index, 'has_hr': False,
                         'image_root_dir': os.path.join(root_dir, 'images'), 
-                        'fill_method': 'LR'}
+                        'fill_method': 'LR', 'image_fill_method': 'padding'}
         }
         
 
