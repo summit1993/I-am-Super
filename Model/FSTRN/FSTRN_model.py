@@ -1,17 +1,21 @@
+# -*- coding: UTF-8 -*-
 import torch
 import torch.nn as nn
-from FSTRN_baseNet import FRB_Block
+import sys, os
+sys.path.append(os.path.join(sys.path[0], '../..'))
+from Model.FSTRN import FSTRN_baseNet
 
 class FSTRN_Model(nn.Module):
     def __init__(self, model_para):
         super(FSTRN_Model, self).__init__()
+        self.model_para = model_para
         # self.lfe = self.create_bottle_net(has_relu=False)
-        self.lfe = FRB_Block(has_relu=False, type=model_para['type'])
+        self.lfe = FSTRN_baseNet.FRB_Block(has_relu=False, type=model_para['type'])
         self.FRB_blocks = nn.Sequential()
         self.frb_num = model_para['frb_num']
         for i in range(self.frb_num):
             # self.FRB_blocks.add_module('rfb_' + str(i + 1), self.create_bottle_net())
-            self.FRB_blocks.add_module('rfb_' + str(i + 1), FRB_Block(has_relu=True, 
+            self.FRB_blocks.add_module('rfb_' + str(i + 1), FSTRN_baseNet.FRB_Block(has_relu=True, 
                 type=model_para['type']))
         self.lrl = nn.Sequential()
         self.lrl.add_module('PReLU', nn.PReLU())
@@ -31,5 +35,6 @@ class FSTRN_Model(nn.Module):
         f = torch.sum(f, 2)
         f = self.lrl(f)
         f = self.lsr(f)
-        f += x[1]
+        if self.model_para['has_LR_Map']:
+            f += x[1]
         return f

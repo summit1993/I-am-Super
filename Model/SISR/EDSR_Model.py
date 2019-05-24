@@ -1,15 +1,12 @@
 # -*- coding: UTF-8 -*-
-from SISR import common
-
+import sys, os
+sys.path.append(os.path.join(sys.path[0], '../..'))
+from Model.SISR import common
 import torch.nn as nn
 
-
-def make_model(args, parent=False):
-    return EDSR(args)
-
-class EDSR(nn.Module):
+class EDSR_Model(nn.Module):
     def __init__(self, args):
-        super(EDSR, self).__init__()
+        super(EDSR_Model, self).__init__()
         conv = common.default_conv
         n_resblocks = args['n_resblocks']
         n_feats = args['n_feats']
@@ -42,6 +39,7 @@ class EDSR(nn.Module):
         self.tail = nn.Sequential(*m_tail)
 
     def forward(self, x):
+        x = x[0]
         # x = self.sub_mean(x)
         x = self.head(x)
 
