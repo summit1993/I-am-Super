@@ -12,9 +12,10 @@ class Poker_Configs(ConfigsBase):
             'frb_num': 4,
             'type': 'poker',
             'has_LR_Map': False,
-            # EDSR configs
+            # SISR configs
+            'SISR_model': 'WDSR_B',
             'scale': 4,
-            'n_resblocks': 16,
+            'n_resblocks': 8,
             'n_feats': 64,
             'res_scale': 1.0,
         }
