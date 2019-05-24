@@ -59,13 +59,13 @@ class DatasetBase(Dataset):
         if img.mode != 'RGB':
             img = img.convert('RGB')
         if img.size != right_size:
-            if self.image_fill_method == 'bicubic':
-                img = img.resize(right_size, Image.BICUBIC)
-            else:
+            if self.image_fill_method == 'padding' and img.size[0] < right_size[0] and img.size[1] < right_size[1]:
                 img_numpy = np.array(img)
                 img_large = np.zeros((right_size[1], right_size[0], 3), dtype='uint8')
                 img_large[:img_numpy.shape[0],:img_numpy.shape[1]] = img_numpy
                 img = Image.fromarray(img_large).convert('RGB')
+            else:
+                img = img.resize(right_size, Image.BICUBIC)
         return img
 
     def change_neibor_2_volume(self, LR, LR_neigbor):
