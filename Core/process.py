@@ -32,6 +32,9 @@ class ProcessBase:
             self.model.parameters()),
             lr=self.configs.optimizer_configs['lr'], 
             weight_decay=self.configs.optimizer_configs['weight_decay'])
+        self.scheduler = optim.lr_scheduler.StepLR(self.optimizer, 
+            step_size=self.configs.optimizer_configs['lr_decay_step'], 
+            gamma=self.configs.optimizer_configs['lr_decay_factor'])
         self.model_save_dir = self.configs.save_configs['model']
         self.model_save_dir = os.path.join(self.model_save_dir, self.configs.model_configs['model_name'])
         if not os.path.exists(self.model_save_dir):
@@ -57,6 +60,7 @@ class ProcessBase:
             param['test_images'] = self.configs.dataset_configs['test']['images']
         for epoch in range(epoch_num):
             param['epoch'] = epoch
+            self.scheduler.step()
             self._train_process(param)
             self._val_process(param)
             self._test_process(param)

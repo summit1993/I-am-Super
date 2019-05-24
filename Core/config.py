@@ -23,6 +23,8 @@ class ConfigsBase:
             'lr': 1e-5,
             'weight_decay': 1e-5,
             'criterion': torch.nn.MSELoss(),
+            'lr_decay_step': 1,
+            'lr_decay_factor': 0.1,
         }
         self.model_configs = {}
         self.save_configs = {
