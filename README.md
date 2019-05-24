@@ -8,8 +8,12 @@ Video Super Resolution Framework with Pytorch
 * CUDA 8.0 [+]
 
 ## Models 
+### VSR
 1. Fast Spatio-Temporal Residual Network for Video Super-Resolution, CVPR, 2019. (FSTRN)
 2. Recurrent Back-Projection Network for Video Super-Resolution, CVPR, 2019. (RBPN)
+### SISR
+1. 	Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, Kyoung Mu Lee: Enhanced Deep Residual Networks for Single Image Super-Resolution. CVPR Workshops 2017: 1132-1140.
+2. Jiahui Yu, Yuchen Fan, Jianchao Yang, Ning Xu, Zhaowen Wang, Xinchao Wang, Thomas S. Huang: Wide Activation for Efficient and Accurate Image Super-Resolution. CoRR abs/1808.08718.
 
 ## Run
 * Run the main python file in Model folders, e.g., 
