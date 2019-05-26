@@ -47,7 +47,7 @@ configs.dataset_configs.pop('val')
 #### Conference
 1. Fast Spatio-Temporal Residual Network for Video Super-Resolution, CVPR, 2019. (FSTRN)
 2. Recurrent Back-Projection Network for Video Super-Resolution, CVPR, 2019. (RBPN) ([code](https://github.com/alterzero/RBPN-Pytorch))
-3. Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation, CVPR, 2018. (VSR-DUF) ([code](https://github.com/yhjo09/VSR-DUF))
+3. Deep Video Super-Resolution Network Using Dynamic Upsampling Filters Without Explicit Motion Compensation, CVPR, 2018. (VSR-DUF) ([code1](https://github.com/yhjo09/VSR-DUF)) ([code2](https://github.com/HymEric/VSR-DUF-Reimplement))
 4. Mehdi S. M. Sajjadi et al., Frame-Recurrent Video Super-Resolution, CVPR, 2018. (FRVSR)
 5. Xin Tao et al., Detail-Revealing Deep Video Super-Resolution, ICCV, 2017. ([code](https://github.com/jiangsutx/SPMC_VideoSR))
 6. Ding Liu et al., Robust Video Super-Resolution With Learned Temporal Dynamics, ICCV, 2017.
