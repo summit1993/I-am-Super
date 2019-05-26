@@ -18,7 +18,7 @@ Video Super Resolution Framework with Pytorch
 ## Run
 * Run the main python file in Model folders, e.g., 
 
-&ensp;&ensp;&ensp;&ensp; CUDA_VISIBLE_DEVICES=6,2,4 python FSTRN_main.py
+&ensp;&ensp;&ensp;&ensp; CUDA_VISIBLE_DEVICES=6,2,4 python Poker_main.py
 
 * It is very convenient to train, evaluate or test the model, where you just need to edit the main file, e.g.,
 
