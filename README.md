@@ -42,6 +42,7 @@ configs.dataset_configs.pop('val')
 ## Material
 * VSR Framworks ([LoSealL/VideoSuperResolution](https://github.com/LoSealL/VideoSuperResolution))
 * VSR papers ([flyywh/Video-Super-Resolution](https://github.com/flyywh/Video-Super-Resolution))
+* Open Video Restoration ([link](https://xinntao.github.io/open-videorestoration/rst_src/overview.html))
 
 ## Papers
 #### Conference
@@ -61,14 +62,13 @@ configs.dataset_configs.pop('val')
 4. Video Super-Resolution via Bidirectional Recurrent Convolutional Networks, TPAMI, 2018.
 
 #### arXiv
-1. EDVR: Video Restoration with Enhanced Deformable Convolutional Networks, arXiv, 2019, 05.
+1. EDVR: Video Restoration with Enhanced Deformable Convolutional Networks, arXiv, 2019, 05. (NTIRE 2019, 1st), ([code](https://github.com/xinntao/EDVR))
 2. Two-Stream Oriented Video Super-Resolution for Action Recognition, arXiv, 2019, 03.
 3. Yapeng Tian, Yulun Zhang, Yun Fu, and Chenliang Xu. TDAN: Temporally Deformable Alignment Network for Video Super-Resolution, arXiv, 2018, 12. (TDAN)
 4. Temporally Coherent GANs for Video Super-Resolution (TecoGAN), arXiv, 2018, 11. ([code](https://github.com/thunil/TecoGAN))
 5. 3DSRnet: Video Super-resolution using 3D Convolutional Neural Networks, arXiv, 2018, 12.
 6. Photorealistic Video Super Resolution, arXiv, 2018, 07.
-7. EDVR: Video Restoration with Enhanced Deformable Convolutional Networks, arXiv, 2019, 5. (NTIRE 2019, 1st)
-8. Adapting Image Super-Resolution State-of-the-arts and Learning Multi-model Ensemble for Video Super-Resolution, arXiv, 2019, 5. (NTIRE 2019, 2nd)
+7. Adapting Image Super-Resolution State-of-the-arts and Learning Multi-model Ensemble for Video Super-Resolution, arXiv, 2019, 5. (NTIRE 2019, 2nd)
 
 ## Models to be Reproduced
 1. VSR-DUF
