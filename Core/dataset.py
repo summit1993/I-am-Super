@@ -18,6 +18,8 @@ class DatasetBase(Dataset):
         self.transform = param['transform']
         self.fill_method = param['fill_method']
         self.image_fill_method = param['image_fill_method']
+        self.circle = param['circle']
+        self.str_fill = param['str_fill']
 
     def __len__(self):
         return len(self.image_list)
@@ -38,8 +40,11 @@ class DatasetBase(Dataset):
             LR_neigbor = torch.zeros(neigbor_size, LR_image_trans.shape[0],
                                 LR_image_trans.shape[1], LR_image_trans.shape[2])
             for i in range(neigbor_size):
-                index = self.neigbor_index[i]
-                image_path = os.path.join(LR_dir, str(image_index + index).zfill(3) + '.bmp')
+                index = self.neigbor_index[i] * self.circle
+                if self.str_fill > 0:
+                    image_path = os.path.join(LR_dir, str(image_index + index).zfill(self.str_fill) + '.bmp')
+                else:
+                    image_path = os.path.join(LR_dir, str(image_index + index) + '.bmp')
                 if os.path.exists(image_path):
                     img_tmp = self._read_image(image_path, L_size)
                     img_tmp = self.transform(img_tmp)
