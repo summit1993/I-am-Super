@@ -214,6 +214,7 @@ class EDVR_Model(nn.Module):
         center = args['center']
         predeblur = args['predeblur']
         HR_in = args['HR_in']
+        self.add_padding = args['add_padding']
         self.nf = nf
         self.center = nframes // 2 if center is None else center
         self.is_predeblur = True if predeblur else False
@@ -253,9 +254,19 @@ class EDVR_Model(nn.Module):
         self.lrelu = nn.LeakyReLU(negative_slope=0.1, inplace=True)
 
     def forward(self, x):
+        x = x[0]
         B, N, C, H, W = x.size()  # N video frames
         x_center = x[:, self.center, :, :, :].contiguous()
-
+        if self.add_padding is not None:
+            H_org = H
+            W_org = W
+            H = H_org + self.add_padding[0]
+            W = W_org + self.add_padding[1]
+            x_tmp = torch.zeros(B, N, C, H, W)
+            if torch.cuda.is_available():
+                x_tmp = x_tmp.cuda()
+            x_tmp[:, :, :, :H_org, :W_org] = x
+            x = x_tmp
         #### extract LR features
         # L1
         if self.is_predeblur:
@@ -299,6 +310,9 @@ class EDVR_Model(nn.Module):
         aligned_fea = torch.stack(aligned_fea, dim=1)  # [B, N, C, H, W]
 
         fea = self.tsa_fusion(aligned_fea)
+
+        if self.add_padding is not None:
+            fea = fea[:, :, :H_org, :W_org]
 
         out = self.recon_trunk(fea)
         out = self.lrelu(self.pixel_shuffle(self.upconv1(out)))

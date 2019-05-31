@@ -16,6 +16,7 @@ class EDVR_Configs(ConfigsBase):
             'center': None,
             'predeblur': False,
             'HR_in': False,
+            'add_padding': (2, 0),
         }
 
         volume_k = 3
