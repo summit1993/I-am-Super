@@ -11,6 +11,7 @@ Video Super Resolution Framework with Pytorch
 ### VSR
 1. Fast Spatio-Temporal Residual Network for Video Super-Resolution, CVPR, 2019. (FSTRN)
 2. Recurrent Back-Projection Network for Video Super-Resolution, CVPR, 2019. (RBPN)
+3. EDVR: Video Restoration with Enhanced Deformable Convolutional Networks, arXiv, 2019, 05. (EDVR)
 ### SISR
 1. 	Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, Kyoung Mu Lee: Enhanced Deep Residual Networks for Single Image Super-Resolution. CVPR Workshops 2017: 1132-1140.
 2. Jiahui Yu, Yuchen Fan, Jianchao Yang, Ning Xu, Zhaowen Wang, Xinchao Wang, Thomas S. Huang: Wide Activation for Efficient and Accurate Image Super-Resolution. CoRR abs/1808.08718.
@@ -72,7 +73,6 @@ configs.dataset_configs.pop('val')
 
 ## Models to be Reproduced
 1. VSR-DUF
-  (Tip or Que: replace the 3D Conv with FSTRN Model, and discard the BN Layers)
-2. EDVR 
+  (Tip or Que: replace the 3D Conv with FSTRN Model, and discard the BN Layers) 
 2. FRVSR
-4. TDAN
+3. TDAN
