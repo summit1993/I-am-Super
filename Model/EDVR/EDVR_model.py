@@ -203,9 +203,9 @@ class TSA_Fusion(nn.Module):
         return fea
 
 
-class EDVR(nn.Module):
+class EDVR_Model(nn.Module):
     def __init__(self, args):
-        super(EDVR, self).__init__()
+        super(EDVR_Model, self).__init__()
         nf = args['nf']
         nframes = args['nframes']
         groups = args['groups']

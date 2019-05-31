@@ -17,3 +17,9 @@ class EDVR_Configs(ConfigsBase):
             'predeblur': False,
             'HR_in': False,
         }
+
+        volume_k = 3
+        neighbor_index = list(range(-1 * volume_k, 0)) + list(range(1, volume_k + 1))
+        self.dataset_configs['train']['neigbor_index'] = neighbor_index
+        self.dataset_configs['val']['neigbor_index'] = neighbor_index
+        self.dataset_configs['test']['neigbor_index'] = neighbor_index
