@@ -11,7 +11,6 @@ train_tmp = pickle.load(open(os.path.join(root_dir, 'train_val.pkl'), 'rb'))
 configs = EDVR_Configs()
 
 configs.regular_configs['batch_size'] = 1
-configs.regular_configs['num_workers'] = 0
 configs.regular_configs['show_iters'] = 1
 
 configs.dataset_configs['train']['images'] = train_tmp
