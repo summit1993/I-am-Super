@@ -20,6 +20,7 @@ class DatasetBase(Dataset):
         self.image_fill_method = param['image_fill_method']
         self.circle = param['circle']
         self.str_fill = param['str_fill']
+        self.need_resize = param['need_resize']
 
     def __len__(self):
         return len(self.image_list)
@@ -63,6 +64,8 @@ class DatasetBase(Dataset):
         img = Image.open(image_path)
         if img.mode != 'RGB':
             img = img.convert('RGB')
+        if not self.need_resize:
+            return img
         if img.size != right_size:
             if self.image_fill_method == 'padding' and img.size[0] < right_size[0] and img.size[1] < right_size[1]:
                 img_numpy = np.array(img)

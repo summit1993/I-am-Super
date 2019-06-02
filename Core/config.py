@@ -38,22 +38,26 @@ class ConfigsBase:
         circle = 1
         volume_k = 2
         neighbor_index = list(range(-1 * volume_k, 0)) + list(range(1, volume_k + 1))
+        need_resize = True
         self.dataset_configs = {
             'train': {'shuffle': True, 'transform': self._get_transform(),
                         'images': train_tmp, 'neigbor_index': neighbor_index, 'has_hr': True,
                         'image_root_dir': os.path.join(root_dir, 'images'),
                         'fill_method': 'LR', 'image_fill_method': 'bicubic',
-                        'circle': circle, 'str_fill':str_fill},
+                        'circle': circle, 'str_fill':str_fill,
+                        'need_resize': need_resize},
             'val': {'shuffle': False, 'transform': self._get_transform(),
                         'images': val_tmp, 'neigbor_index': neighbor_index, 'has_hr': True,
                         'image_root_dir': os.path.join(root_dir, 'images'), 
                         'fill_method': 'LR', 'image_fill_method': 'bicubic',
-                        'circle': circle, 'str_fill':str_fill},
+                        'circle': circle, 'str_fill':str_fill,
+                        'need_resize': need_resize},
             'test': {'shuffle': False, 'transform': self._get_transform(),
                         'images': test_tmp, 'neigbor_index': neighbor_index, 'has_hr': False,
                         'image_root_dir': os.path.join(root_dir, 'images'), 
                         'fill_method': 'LR', 'image_fill_method': 'bicubic',
-                        'circle': circle, 'str_fill':str_fill}
+                        'circle': circle, 'str_fill':str_fill,
+                        'need_resize': need_resize}
         }
         
 

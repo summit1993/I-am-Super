@@ -11,6 +11,7 @@ images_root_dir = os.path.join(root_dir, 'images_crop')
 circle = 12
 str_fill = 0
 volume_k = 2
+need_resize = False
 
 configs = EDVR_Configs(volume_k=volume_k)
 
@@ -35,10 +36,12 @@ configs.dataset_configs['train']['images'] = train_tmp
 configs.dataset_configs['train']['image_root_dir'] = images_root_dir
 configs.dataset_configs['train']['circle'] = circle
 configs.dataset_configs['train']['str_fill'] = str_fill
+configs.dataset_configs['train']['need_resize'] = need_resize
 configs.dataset_configs['test']['images'] = test_tmp
 configs.dataset_configs['test']['image_root_dir'] = images_root_dir
 configs.dataset_configs['test']['circle'] = circle
 configs.dataset_configs['test']['str_fill'] = str_fill
+configs.dataset_configs['test']['need_resize'] = need_resize
 
 configs.dataset_configs.pop('val')
 
