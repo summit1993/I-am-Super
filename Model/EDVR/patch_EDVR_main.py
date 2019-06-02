@@ -10,8 +10,8 @@ test_tmp = pickle.load(open(os.path.join(root_dir, 'pickle/test_crop.pkl'), 'rb'
 images_root_dir = os.path.join(root_dir, 'images_crop')
 circle = 12
 str_fill = 0
-
 volume_k = 2
+
 configs = EDVR_Configs(volume_k=volume_k)
 
 configs.regular_configs['batch_size'] = 1
