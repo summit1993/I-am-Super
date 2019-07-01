@@ -92,13 +92,13 @@ class ProcessBase:
                         (epoch + 1, step + 1, running_loss / show_iters))
                     running_loss = 0.0
 
-            if model_save_epoch > 0:
-                if (epoch + 1) % model_save_epoch == 0:
-                    torch.save({
-                        'epoch': epoch,
-                        'model_state_dict': self.model.state_dict(),
-                        'optimizer_state_dict': self.optimizer.state_dict()
-                    }, os.path.join(self.model_save_dir, 'checkpoint_' + str(epoch) + '.tar'))
+        if model_save_epoch > 0:
+            if (epoch + 1) % model_save_epoch == 0:
+                torch.save({
+                    'epoch': epoch,
+                    'model_state_dict': self.model.state_dict(),
+                    'optimizer_state_dict': self.optimizer.state_dict()
+                }, os.path.join(self.model_save_dir, 'checkpoint_' + str(epoch) + '.tar'))
         
     def _val_process(self, param):
         if 'val_loader' in param:
